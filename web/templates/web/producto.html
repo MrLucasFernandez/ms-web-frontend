@@ -1,0 +1,27 @@
+<ul>
+    {% for obj in response %}
+        <li>{{ obj.id_producto }} - {{ obj.nombre }}</li>
+    {% endfor %}
+    </ul>
+<form action="{% url 'web:formprod' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><label for="id_categoria">Categoria:</label>
+        <input id="id_categoria" type="text" name="id_categoria" maxlength="2" required></p>
+    <p><label for="id_nombre">Nombre:</label>
+        <input id="id_nombre" type="text" name="nombre" maxlength="30" required></p>
+    <p><label for="id_descripcion">Descripción:</label>
+        <input id="id_descripcion" type="text" name="descripcion" maxlength="200" required></p>
+    <p><label for="id_precio">Precio:</label>
+        <input id="id_precio" type="text" name="precio" maxlength="100" required></p>
+    <p><label for="id_stock">Stock:</label>
+        <input id="id_stock" type="text" name="stock" maxlength="100" required></p>
+    <button type="submit">Crear Producto</button>
+</form>
+<!--    <h1>Categorias:</h1>
+    <ul>
+    {% for obj in categorias %}
+        <li>{{ obj.id_categoria }} - {{ obj.descripcion }}</li>
+    {% endfor %}
+    </ul>
+-->

@@ -1,0 +1,25 @@
+<ul>
+    {% for obj in response %}
+        <li>{{ obj.id_usuario }} - {{ obj.username }}</li>
+    {% endfor %}
+    </ul>
+<form action="{% url 'web:formuser' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><label for="id_rol">Rol:</label>
+        <input id="id_rol" type="text" name="rol" maxlength="2" required></p>
+    <p><label for="id_nombre">Nombre:</label>
+        <input id="id_nombre" type="text" name="nombre" maxlength="30" required></p>
+    <p><label for="id_rut">RUT:</label>
+        <input id="id_rut" type="text" name="rut" maxlength="9" required></p>
+    <p><label for="id_email">Correo electrónico:</label>
+        <input id="id_email" type="text" name="email" maxlength="35" required></p>
+    <p><label for="id_direccion">Dirección:</label>
+        <input id="id_direccion" type="text" name="direccion" maxlength="50" required></p>
+    <p><label for="id_username">Nombre de usuario:</label>
+        <input id="id_username" type="text" name="username" maxlength="25" required></p>
+    <p><label for="id_password">Contraseña:</label>
+        <input id="id_password" type="password" name="password" maxlength="25" required></p>
+    
+    <button type="submit">Crear Usuario</button>
+</form>

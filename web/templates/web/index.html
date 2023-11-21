@@ -1,20 +1,19 @@
-<ul>
-    {% for obj in response %}
-        <li>{{ obj.id_producto }} - {{ obj.nombre }}</li>
-    {% endfor %}
-    </ul>
-<form action="{% url 'web:formulario' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <p><label for="id_categoria">Categoria:</label>
-        <input id="id_categoria" type="text" name="categoria" maxlength="2" required></p>
-    <p><label for="id_nombre">Nombre:</label>
-        <input id="id_nombre" type="text" name="nombre" maxlength="30" required></p>
-    <p><label for="id_descripcion">Descripción:</label>
-        <input id="id_descripcion" type="text" name="descripcion" maxlength="200" required></p>
-    <p><label for="id_precio">Precio:</label>
-        <input id="id_precio" type="text" name="precio" maxlength="100" required></p>
-    <p><label for="id_stock">Stock:</label>
-        <input id="id_stock" type="text" name="stock" maxlength="100" required></p>
-    <button type="submit">Crear Producto</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiExpress</title>
+</head>
+<body>
+    <h1>¡Bienvenido a ServiExpress!</h1>
+    
+    <br>
+    <br>
+    <div>
+        <a href="{% url 'web:prod' %}">Menú Productos</a>
+        <br>
+        <a href="{% url 'web:user' %}">Menú Usuarios</a>
+    </div>
+</body>
+</html>

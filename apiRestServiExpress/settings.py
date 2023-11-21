@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-wmdrp!-8t@*!)3tu-a4g_(h-wr57t()blnn!id&9hh=7+_9u+r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','44.215.197.102','35.173.119.102','3.228.132.49']
 
 
 # Application definition
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'productos',
     'web',
     'rest_framework',
 ]
