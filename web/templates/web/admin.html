@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ccca34c160.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <section>
+        <header>
+            <!-- Texto Carrusel -->
+            <div id="fuente-header" class="carousel-inner">
+                <br>
+            </div>
+            
+            <div id="header2" class="text-center">
+                <a href="{% url 'web:index' %}" class="text-decoration-none text-white"><h3 class="m-0 pt-4 pb-4 fw-bold">SERVIEXPRESS</h3></a>
+                
+            </div>
+
+            <div class="container-fluid p-0" >
+                <nav class="navbar navbar-expand-sm " id="color-nav">
+                    <div class="container-fluid">
+                        
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse fw-bold" id="mynavbar">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link texto-negro pe-3" href="{% url 'web:reserva' %}"><i class="fa-solid fa-calendar-days size-ico"></i> Reserva</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link texto-negro pe-3" href="#"><i class="fa-solid fa-file-arrow-down size-ico"></i> Reportes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link texto-negro pe-3" href="#"><i class="fa-solid fa-truck size-ico"></i> Pedidos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link texto-negro" href="{% url 'web:admin' %}"><i class="fa-solid fa-gear size-ico"></i> Administrar</a>
+                                </li>
+                            </ul>
+                            <div class="d-flex align-items-center text-white">
+                                {% if user.is_authenticated %}
+                                    
+                                    <p class="d-flex pt-3 me-2">¡Hola! {{user.username}}</p>
+                                    <a class="rounded me-3" href="#"><i class="fa-solid fa-user p-2 text-white"></i></a>
+                                    {% if user.is_staff %}
+                                        <a class="rounded me-3" href="#"><i class="fa-solid fa-database text-white"></i></a>
+                                    {% endif %}
+                                {% else %}
+                                    <a class="rounded me-2" href="{% url 'web:login' %}"><i class="fa-solid fa-circle-user p-2 size-ico text-black"></i></i></a>
+                                {% endif %}
+
+                                
+                            </div>
+                            <form class="d-flex align-items-center" action="#" method="GET">
+                                
+                                <input class="form-control me-2" type="search" placeholder="Buscar..." name="">
+                                <button type="submit" class="btn btn-dark">
+                                    <i class="fa-solid fa-magnifying-glass p-2 text-white"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <p class="m-2 size-br"></p>
+        
+        <div id="fuente-titulo" class="p-5">
+            <h1 class="fw-bold"><i class="fa-solid fa-gear size-ico"></i>ADMINISTRACIÓN</h1>
+            
+        </div>
+        
+        <br>
+        <br>
+
+        <div class="container menu text-center">
+            <br>
+            <a href="{% url 'web:usuario' %}"><button class="btn" id="boton">USUARIOS</button></a>
+            <br>
+            <br>
+            <a href="{% url 'web:servicio' %}"><button class="btn" id="boton">SERVICIOS</button></a>
+            <br>
+            <br>
+            <a href="{% url 'web:producto' %}"><button class="btn" id="boton">PRODUCTOS</button></a>
+            <br>
+            <br>
+            <a href="{% url 'web:importador' %}"><button class="btn" id="boton">IMPORTADORES</button></a>
+            <br>
+            <br>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p class="mb-0 m-2 size-br"></p>
+        <!-- Aqui va lo ultimo de abajo -->
+        <footer id="fuente-footer" class="row p-5 ancho-total m-0">
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <h4 class="fw-bold">¿Quiénes somos?</h4>
+                <p class="m-0 small text-secondary texto-negro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quam ligula, euismod sed lectus fringilla, egestas vehicula eros. Aenean ullamcorper sodales luctus. In eu tempus odio, eu dignissim lorem. Donec sed eleifend nibh, sed molestie dui. Donec consectetur lacus et ante malesuada, in ultrices odio vehicula.</p>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <h4 class="fw-bold">Horario de atención:</h4>
+                <p class="m-0 small text-secondary">Lunes a viernes: 08:00 a 20:00 hrs.</p>
+                <p class="m-0 small text-secondary">Sábados: 10:00 a 19:00 hrs.</p>
+                <p class="small text-secondary">Domingos y festivos: CERRADO.</p>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <h4 class="fw-bold">Redes sociales</h4>
+                <i id="animacion" class="fa-brands fa-whatsapp pe-1 animacion"></i><i class="fa-brands fa-instagram animacion"></i>
+                <p class="m-0 small text-secondary">WhatsApp: +569 1234 5678</p>
+                <p class="small text-secondary">Instagram: @serviexpress</p>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <h4 class="fw-bold">Info adicional</h4>
+                <p class="m-0 small text-secondary animacion">Preguntas frecuentes</p>
+                <p class="small text-secondary animacion">Opiniones de clientes</p>
+            </div>
+        </footer>
+        
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script src="{% static 'web/js/script.js' %}"></script>
+</body>
+</html>
+<!---->
